@@ -24,6 +24,11 @@ class CheatSheetConfig:
     row_height: float = 11
     section_spacing: float = 8
     subsection_spacing: float = 4
+    paper_size: str = "letter"  # letter, a4
+    orientation: str = "portrait"  # portrait, landscape
+    fill_top_half: bool = False  # 2-row layout: fill top half before bottom
+    section_align_flush: bool = True  # Remove section spacing if first in column
+    section_no_awkward_breaks: bool = True  # Avoid breaking small sections
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "CheatSheetConfig":

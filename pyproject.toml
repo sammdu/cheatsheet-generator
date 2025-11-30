@@ -1,32 +1,40 @@
-[tool.poetry]
-name = "cheatsheet-generator"
-version = "1.0.0"
-description = "A tool to generate optimized cheat sheets from YAML hotkey definitions"
-authors = ["Arkadii <arkadii@arkadhub.com>"]
-readme = "README.md"
-packages = [{include = "cheatsheet_generator", from = "src"}]
-
-[tool.poetry.dependencies]
-python = ">=3.11, <3.15"
-pyyaml = "^6.0.2"
-reportlab = "^4.4.3"
-click = "^8.2.1"
-pillow = "^11.3.0"
-
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.4.1"
-pytest-cov = "^6.2.1"
-black = "^25.1.0"
-flake8 = "^7.3.0"
-isort = "^6.0.1"
-pre-commit = "^4.2.0"
-pyinstaller = "^6.15.0"
-
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "cheatsheet-generator"
+version = "1.1.0"
+description = "A tool to generate optimized cheat sheets from YAML hotkey definitions"
+readme = "README.md"
+requires-python = ">=3.10,<3.15"
+authors = [
+    {name = "Arkadii", email = "arkadii@arkadhub.com"},
+    {name = "Samm Du", email = "hi@sammdu.com"}
+]
+dependencies = [
+    "pyyaml>=6.0.2",
+    "reportlab>=4.4.3",
+    "click>=8.2.1",
+    "pillow>=10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+    "isort>=6.0.1",
+    "pre-commit>=4.2.0",
+    "pyinstaller>=6.15.0",
+]
+
+[tool.poetry]
+packages = [{include = "cheatsheet_generator", from = "src"}]
+
+[tool.poetry.scripts]
+cheatsheet-gen = "cheatsheet_generator.cli:main"
 
 [tool.black]
 line-length = 88
